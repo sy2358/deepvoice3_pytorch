@@ -21,7 +21,7 @@ $ python
 
 $ python synthesis.py checkpoints/checkpoint_step000833336.pth test_list.txt output --preset=presets/deepvoice3_ljspeech.json
 
-========================== START OF THE ORIGINAL DOCUMENTATION ===================================
+========================== START OF THE ORIGINAL DOCUMENTATION ===================
 
 # Deepvoice3_pytorch
 
