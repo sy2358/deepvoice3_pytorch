@@ -1,3 +1,28 @@
+# 0. LJSpeech 데이터셋을 다운로드한 후, root 디렉토리에 저장합니다. 
+
+# 1. Preprocess 
+python preprocess.py --preset=presets/deepvoice3_ljspeech.json ljspeech ~/data/LJSpeech-1.1/ ./data/ljspeech
+
+# 2. Train 
+python3 train.py --preset=presets/deepvoice3_ljspeech.json --data-root=./data/ljspeech/
+
+# 3. Check it running 
+$ firefox -P
+type localhost:6006 at firefox window
+
+# 4. Test set 만들기 
+$ vim test_list.txt 
+
+# 5. Test set에 적용하기 
+Install NLTK and punkt 
+$ python
+>> import nltk
+>> nltk.download(‘punkt’)
+
+$ python synthesis.py checkpoints/checkpoint_step000833336.pth test_list.txt output --preset=presets/deepvoice3_ljspeech.json
+
+========================== START OF THE ORIGINAL DOCUMENTATION ===================================
+
 # Deepvoice3_pytorch
 
 [![PyPI](https://img.shields.io/pypi/v/deepvoice3_pytorch.svg)](https://pypi.python.org/pypi/deepvoice3_pytorch)
